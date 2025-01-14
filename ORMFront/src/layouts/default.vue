@@ -7,7 +7,7 @@
           <v-card-title class="menu-item" @click="this.$router.push('/visiting')">Visiting</v-card-title>
           <v-card-title class="menu-item" @click="this.$router.push('/exhibits')">Exhibits</v-card-title>
           <v-card-title class="menu-item" @click="this.$router.push('/projects')">Projects</v-card-title>
-          <v-card-title class="menu-item make-room">Store</v-card-title>
+          <v-card-title class="menu-item make-room" @click="gotoStore()">Store</v-card-title>
           <v-card-title class="menu-item" @click="this.$router.push('/events')">Events</v-card-title>
           <v-card-title class="menu-item" @click="this.$router.push('/volunteer')">Volunteer</v-card-title>
           <v-card-title class="menu-item" @click="this.$router.push('/contact')">Contact Us</v-card-title>
@@ -36,6 +36,7 @@
           <v-list-item @click="this.$router.push('/visiting')" title="Visiting"></v-list-item>
           <v-list-item @click="this.$router.push('/exhibits')" title="Exhibits"></v-list-item>
           <v-list-item @click="this.$router.push('/projects')" title="Projects"></v-list-item>
+          <v-list-item @click="gotoStore()" title="Store"></v-list-item>
           <v-list-item @click="this.$router.push('/events')" title="Events"></v-list-item>
           <v-list-item @click="this.$router.push('/volunteer')" title="Volunteer"></v-list-item>
           <v-list-item @click="this.$router.push('/contact')" title="Contact Us"></v-list-item>
@@ -74,7 +75,7 @@
     margin-left: 350px
   }
   .menu-item {
-    margin-top: 150px;
+    margin-top: 120px;
   }
   .menu-item:hover {
     color: #bb0000;
@@ -99,7 +100,7 @@
     align-items: center;
     justify-content: center;
     z-index: 100;
-    margin-top: -200px;
+    margin-top: -170px;
   }
   .custom-app-bar {
     height: 300px;
@@ -144,6 +145,10 @@
       },
       onResize() {
         this.mobile = window.innerWidth < 1300 || window.innerWidth < window.innerHeight;
+      },
+      gotoStore()
+      {
+        location.href='https://ohiorailwaymuseumgiftshop.square.site/';
       }
     },
     mounted() {
