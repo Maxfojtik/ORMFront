@@ -134,11 +134,13 @@
         this.theme = "dark";
         // this.ORMColor = "#bb0000";
         this.$emit('settheme', this.theme);
+        localStorage.theme = this.theme;
       },
       setLight() {
         this.theme = "light";
         // this.ORMColor = "#880000";
         this.$emit('settheme', this.theme);
+        localStorage.theme = this.theme;
       },
       onResize() {
         this.mobile = window.innerWidth < 1300 || window.innerWidth < window.innerHeight;
@@ -148,6 +150,8 @@
       this.$nextTick(() => {
         window.addEventListener('resize', this.onResize);
       });
+      this.theme = localStorage.theme;
+      this.$emit('settheme', this.theme);
       this.onResize();
     },
 
