@@ -1,8 +1,7 @@
 <template>
   <v-main>
     <div class="content">
-      
-      <div class="custom-app-bar">
+      <div class="custom-app-bar" v-if="!mobile">
         <div class="nav-items" :class="{ 'dark-text': theme=='dark' }">
           <v-card-title class="menu-item first-item" @click="this.$router.push('/about')">About Us</v-card-title>
           <v-card-title class="menu-item" @click="this.$router.push('/visiting')">Visiting</v-card-title>
@@ -23,6 +22,29 @@
           <img class="logo" :src="logoRed" @click="this.$router.push('/')"></img>
         </div>
       </div>
+      <div class="custom-app-bar-mobile" v-if="mobile">
+        <v-app-bar :elevation="2" class="mobile-app-bar">
+          <template v-slot:prepend>
+            <v-app-bar-nav-icon @click="this.navOpen = !this.navOpen"></v-app-bar-nav-icon>
+          </template>
+
+          <v-app-bar-title><v-img :width="300" :src="banner" @click="this.$router.push('/')"></v-img></v-app-bar-title>
+        </v-app-bar>
+        <v-navigation-drawer v-model="navOpen">
+          <v-img :src="logoRed" @click="this.$router.push('/')"></v-img>
+          <v-list-item @click="this.$router.push('/about')" title="About Us"></v-list-item>
+          <v-list-item @click="this.$router.push('/visiting')" title="Visiting"></v-list-item>
+          <v-list-item @click="this.$router.push('/exhibits')" title="Exhibits"></v-list-item>
+          <v-list-item @click="this.$router.push('/projects')" title="Projects"></v-list-item>
+          <v-list-item @click="this.$router.push('/events')" title="Events"></v-list-item>
+          <v-list-item @click="this.$router.push('/volunteer')" title="Volunteer"></v-list-item>
+          <v-list-item @click="this.$router.push('/contact')" title="Contact Us"></v-list-item>
+          <v-list-item>
+            <div v-if="!isDarkTheme">Dark Mode <v-icon size="x-large" icon="mdi-weather-night" @click="setDark"/></div>
+            <div v-if="isDarkTheme">Light Mode <v-icon size="x-large" icon="mdi-weather-sunny" @click="setLight"/></div>
+          </v-list-item>
+        </v-navigation-drawer>
+      </div>
       <router-view />
     </div>
   </v-main>
@@ -36,6 +58,9 @@
     top: 0;
     right: 100px;
   } */
+   .mobile-app-bar {
+    background: #bb0000 !important;
+   }
    .logo {
     cursor: pointer;
    }
@@ -83,7 +108,7 @@
 
 <script setup>
   import logoRed from '@/assets/logo_red.png'
-  import banner from '@/assets/banner_name_ohio.png'
+  import banner from '@/assets/banner_name.png'
   import bannerDark from '@/assets/banner_name_ohio_dark.png'
 </script>
 
@@ -99,7 +124,9 @@
     data() {
       return {
         theme: "light",
-        ORMColor: "#bb0000"
+        ORMColor: "#bb0000",
+        mobile: true,
+        navOpen: true
       }
     },
     methods: {
