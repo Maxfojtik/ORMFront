@@ -36,9 +36,9 @@
     top: 0;
     right: 100px;
   } */
-   .logo {
+  .logo {
     cursor: pointer;
-   }
+  }
   .first-item {
     margin-left: auto;
   }
