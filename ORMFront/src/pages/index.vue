@@ -1,6 +1,8 @@
 <template>
-   Index
+
 </template>
+
+<style></style>
 
 <script>
 </script>

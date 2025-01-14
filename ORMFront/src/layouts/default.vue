@@ -63,7 +63,7 @@
    }
    .logo {
     cursor: pointer;
-   }
+  }
   .first-item {
     margin-left: auto;
   }
