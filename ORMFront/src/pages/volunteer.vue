@@ -1,5 +1,5 @@
 <template>
-   Index
+   Volunteer
 </template>
 
 <script>

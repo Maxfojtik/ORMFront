@@ -1,5 +1,5 @@
 <template>
-   Index
+   Contact Us
 </template>
 
 <script>

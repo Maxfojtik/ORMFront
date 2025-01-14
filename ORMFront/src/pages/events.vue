@@ -1,5 +1,5 @@
 <template>
-   Index
+   Events
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-   Index
+   Exhibits
 </template>
 
 <script>

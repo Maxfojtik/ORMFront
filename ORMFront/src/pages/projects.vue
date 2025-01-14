@@ -1,5 +1,5 @@
 <template>
-   Index
+   Projects Page
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-   Index
+   Visiting Us
 </template>
 
 <script>
