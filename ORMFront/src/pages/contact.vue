@@ -1,7 +1,7 @@
 <template>
    <v-card>
       <v-card-title class="header">Contact Us</v-card-title>
-      <v-card-text class="body">
+      <v-card-text>
          If you have questions or comments, send us a message or give us a call!
       </v-card-text>
       <v-card-actions>
@@ -23,8 +23,9 @@
 </template>
 
 <style>
-.header {font-size: 50px; text-align: center;}
-.body {font-size: 20px;}
+.header {text-align: center;}
+/* font-size: 50px;  */
+/* .body {font-size: 20px;} */
 </style>
 
 <script>
