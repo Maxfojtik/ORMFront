@@ -11,7 +11,7 @@
       <v-card-text>
          <v-container>
             <v-row justify="center">
-               Sundays from 12:00 PM - 4:00PM
+               Sundays from 12:00 PM - 4:00PM (May - December)
             </v-row>
             <v-row justify="center">
                Be on the lookout for our holiday events!
@@ -49,6 +49,8 @@
          The Ohio Railway Museum is located in historic Worthington, Ohio a northern suburb of Columbus. It is near major interstate freeways 
          in the north Columbus area. Exit Interstate 71 at Route 161 (Worthington) and go west one mile. Proprietors Road is the first traffic light 
          west of the three railroad underpasses. Go north on Proprietors and the museum is on the right 1/2 mile north of Dublin-Granville Road.
+         <br><br>
+         Address: 990 Proprietors Road Worthington, Ohio 43085
       </v-card-text>
       <v-container>
          <v-row justify="center">
