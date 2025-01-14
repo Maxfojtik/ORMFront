@@ -40,8 +40,8 @@
           <v-list-item @click="this.$router.push('/volunteer')" title="Volunteer"></v-list-item>
           <v-list-item @click="this.$router.push('/contact')" title="Contact Us"></v-list-item>
           <v-list-item>
-            <div v-if="!isDarkTheme">Dark Mode <v-icon size="x-large" icon="mdi-weather-night" @click="setDark"/></div>
-            <div v-if="isDarkTheme">Light Mode <v-icon size="x-large" icon="mdi-weather-sunny" @click="setLight"/></div>
+            <div v-if="!isDarkTheme" @click="setDark" class="logo">Dark Mode <v-icon size="x-large" icon="mdi-weather-night"/></div>
+            <div v-if="isDarkTheme" @click="setLight" class="logo">Light Mode <v-icon size="x-large" icon="mdi-weather-sunny"/></div>
           </v-list-item>
         </v-navigation-drawer>
       </div>
@@ -125,8 +125,8 @@
       return {
         theme: "light",
         ORMColor: "#bb0000",
-        mobile: true,
-        navOpen: true
+        mobile: false,
+        navOpen: false
       }
     },
     methods: {
@@ -139,8 +139,22 @@
         this.theme = "light";
         // this.ORMColor = "#880000";
         this.$emit('settheme', this.theme);
+      },
+      onResize() {
+        this.mobile = window.innerWidth < 1300 || window.innerWidth < window.innerHeight;
       }
     },
+    mounted() {
+      this.$nextTick(() => {
+        window.addEventListener('resize', this.onResize);
+      });
+      this.onResize();
+    },
+
+    beforeDestroy() { 
+      window.removeEventListener('resize', this.onResize); 
+    },
+
     computed: {
       isDarkTheme() {
         // console.log(this.$vuetify.theme.dark);
