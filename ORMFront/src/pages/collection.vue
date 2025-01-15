@@ -104,7 +104,7 @@
       right: 390px;
       top: 20px;
       height: 260px;
-      z-index: -1;
+      /* z-index: -1; */
       text-align: right;
    }
    .item-image-right {
@@ -121,7 +121,7 @@
       left: 390px;
       top: 20px;
       height: 260px;
-      z-index: -1;
+      /* z-index: -1; */
    }
    .item-image-left {
       position: absolute !important;

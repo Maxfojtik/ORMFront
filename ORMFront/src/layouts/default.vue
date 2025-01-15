@@ -3,14 +3,14 @@
     <div class="content">
       <div class="custom-app-bar" v-if="!mobile">
         <div class="nav-items" :class="{ 'dark-text': theme=='dark' }">
-          <v-card-title class="menu-item first-item" @click="this.$router.push('/about')">About Us</v-card-title>
-          <v-card-title class="menu-item" @click="this.$router.push('/visiting')">Visiting</v-card-title>
-          <v-card-title class="menu-item" @click="this.$router.push('/collection')">Collection</v-card-title>
-          <v-card-title class="menu-item" @click="this.$router.push('/projects')">Projects</v-card-title>
+          <v-card-title class="menu-item first-item" @click="gotoAbout()">About Us</v-card-title>
+          <v-card-title class="menu-item" @click="gotoVisiting()">Visiting</v-card-title>
+          <v-card-title class="menu-item" @click="gotoCollection()">Collection</v-card-title>
+          <v-card-title class="menu-item" @click="gotoProjects()">Projects</v-card-title>
           <v-card-title class="menu-item make-room" @click="gotoStore()">Store</v-card-title>
-          <v-card-title class="menu-item" @click="this.$router.push('/events')">Events</v-card-title>
-          <v-card-title class="menu-item" @click="this.$router.push('/volunteer')">Volunteer</v-card-title>
-          <v-card-title class="menu-item" @click="this.$router.push('/contact')">Contact Us</v-card-title>
+          <v-card-title class="menu-item" @click="gotoEvents()">Events</v-card-title>
+          <v-card-title class="menu-item" @click="gotoVolenteer()">Volunteer</v-card-title>
+          <v-card-title class="menu-item" @click="gotoContact()">Contact Us</v-card-title>
           <div class="dark-mode-selector menu-item">
             <v-icon size="x-large" icon="mdi-weather-sunny" @click="setLight" v-if="isDarkTheme"/>
             <v-icon size="x-large" icon="mdi-weather-night" @click="setDark" v-if="!isDarkTheme"/>
@@ -25,21 +25,21 @@
       <div class="custom-app-bar-mobile" v-if="mobile">
         <v-app-bar :elevation="2" class="mobile-app-bar">
           <template v-slot:prepend>
-            <v-app-bar-nav-icon @click="this.navOpen = !this.navOpen"></v-app-bar-nav-icon>
+            <v-app-bar-nav-icon @click="toggleNav()"></v-app-bar-nav-icon>
           </template>
 
-          <v-app-bar-title><v-img :width="300" :src="banner" @click="this.$router.push('/')"></v-img></v-app-bar-title>
+          <v-app-bar-title><v-img :width="300" :src="banner" @click="gotoHome()"></v-img></v-app-bar-title>
         </v-app-bar>
         <v-navigation-drawer v-model="navOpen">
-          <v-img :src="logoRed" @click="this.$router.push('/')"></v-img>
-          <v-list-item @click="this.$router.push('/about')" title="About Us"></v-list-item>
-          <v-list-item @click="this.$router.push('/visiting')" title="Visiting"></v-list-item>
-          <v-list-item @click="this.$router.push('/collection')" title="Colletion"></v-list-item>
-          <v-list-item @click="this.$router.push('/projects')" title="Projects"></v-list-item>
+          <v-img :src="logoRed" @click="gotoHome()"></v-img>
+          <v-list-item @click="gotoAbout()" title="About Us"></v-list-item>
+          <v-list-item @click="gotoVisiting()" title="Visiting"></v-list-item>
+          <v-list-item @click="gotoCollection()" title="Colletion"></v-list-item>
+          <v-list-item @click="gotoProjects()" title="Projects"></v-list-item>
           <v-list-item @click="gotoStore()" title="Store"></v-list-item>
-          <v-list-item @click="this.$router.push('/events')" title="Events"></v-list-item>
-          <v-list-item @click="this.$router.push('/volunteer')" title="Volunteer"></v-list-item>
-          <v-list-item @click="this.$router.push('/contact')" title="Contact Us"></v-list-item>
+          <v-list-item @click="gotoEvents()" title="Events"></v-list-item>
+          <v-list-item @click="gotoVolenteer()" title="Volunteer"></v-list-item>
+          <v-list-item @click="gotoContact()" title="Contact Us"></v-list-item>
           <v-list-item>
             <div v-if="!isDarkTheme" @click="setDark" class="logo">Dark Mode <v-icon size="x-large" icon="mdi-weather-night"/></div>
             <div v-if="isDarkTheme" @click="setLight" class="logo">Light Mode <v-icon size="x-large" icon="mdi-weather-sunny"/></div>
@@ -131,6 +131,42 @@
       }
     },
     methods: {
+      gotoHome()
+      {
+        this.$router.push('/');
+      },
+      gotoAbout()
+      {
+        this.$router.push('/about');
+      },
+      gotoVisiting()
+      {
+        this.$router.push('/visiting');
+      },
+      gotoCollection()
+      {
+        this.$router.push('/collection');
+      },
+      gotoProjects()
+      {
+        this.$router.push('/projects')
+      },
+      gotoEvents()
+      {
+        this.$router.push('/events')
+      },
+      gotoVolenteer()
+      {
+        this.$router.push('/volenteer')
+      },
+      gotoContact()
+      {
+        this.$router.push('/contact')
+      },
+      toggleNav()
+      {
+        this.navOpen = !this.navOpen;
+      },
       setDark() {
         this.theme = "dark";
         // this.ORMColor = "#bb0000";
