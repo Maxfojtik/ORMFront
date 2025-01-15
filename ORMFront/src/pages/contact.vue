@@ -29,7 +29,6 @@
 </style>
 
 <script>
-
 export default {
     name: "Contact Us",
     components: {
