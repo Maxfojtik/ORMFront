@@ -34,7 +34,7 @@
           <v-img :src="logoRed" @click="this.$router.push('/')"></v-img>
           <v-list-item @click="this.$router.push('/about')" title="About Us"></v-list-item>
           <v-list-item @click="this.$router.push('/visiting')" title="Visiting"></v-list-item>
-          <v-list-item @click="this.$router.push('/exhibits')" title="Exhibits"></v-list-item>
+          <v-list-item @click="this.$router.push('/collection')" title="Colletion"></v-list-item>
           <v-list-item @click="this.$router.push('/projects')" title="Projects"></v-list-item>
           <v-list-item @click="gotoStore()" title="Store"></v-list-item>
           <v-list-item @click="this.$router.push('/events')" title="Events"></v-list-item>
@@ -46,7 +46,7 @@
           </v-list-item>
         </v-navigation-drawer>
       </div>
-      <router-view />
+      <router-view/>
     </div>
   </v-main>
 
@@ -170,7 +170,6 @@
     beforeDestroy() { 
       window.removeEventListener('resize', this.onResize); 
     },
-
     computed: {
       isDarkTheme() {
         // console.log(this.$vuetify.theme.dark);
