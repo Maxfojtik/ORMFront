@@ -7,11 +7,11 @@
 <style>
   /* Apply transition to the background color */
   .v-application {
-    transition: background 0.2s ease-in-out;
+    transition: background .5s ease-in-out !important;
   }
   .v-footer {
-    transition: color 0.2s ease-in-out !important; 
-    transition: background 0.2s ease-in-out  !important;
+    transition: color .5s ease-in-out !important; 
+    transition: background .5s ease-in-out  !important;
   }
 </style>
 

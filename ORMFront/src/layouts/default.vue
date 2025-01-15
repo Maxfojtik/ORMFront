@@ -5,7 +5,7 @@
         <div class="nav-items" :class="{ 'dark-text': theme=='dark' }">
           <v-card-title class="menu-item first-item" @click="this.$router.push('/about')">About Us</v-card-title>
           <v-card-title class="menu-item" @click="this.$router.push('/visiting')">Visiting</v-card-title>
-          <v-card-title class="menu-item" @click="this.$router.push('/exhibits')">Exhibits</v-card-title>
+          <v-card-title class="menu-item" @click="this.$router.push('/collection')">Collection</v-card-title>
           <v-card-title class="menu-item" @click="this.$router.push('/projects')">Projects</v-card-title>
           <v-card-title class="menu-item make-room" @click="gotoStore()">Store</v-card-title>
           <v-card-title class="menu-item" @click="this.$router.push('/events')">Events</v-card-title>
@@ -155,7 +155,14 @@
       this.$nextTick(() => {
         window.addEventListener('resize', this.onResize);
       });
-      this.theme = localStorage.theme;
+      if(!localStorage.theme)
+      {
+        this.theme = "light";
+      }
+      else
+      {
+        this.theme = localStorage.theme;
+      }
       this.$emit('settheme', this.theme);
       this.onResize();
     },
